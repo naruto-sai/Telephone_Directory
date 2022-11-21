@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block content %}
+    <center>
+        <div class="content-section">
+            <fieldset>
+                <legend class="border-bottom mb-4"> Contacts in Directory</legend>
+                
+                <div > 
+                    <table>
+                        <tr>
+                        <th > Name </th>
+                        <th> Email</th>
+                        <th> Contact Number</th>
+                        </tr>
+                    
+                        <body>
+                    {% for i,j in contact.items() %}
+                    {% if i !=none and j !=none %}
+                        <tr>
+                        <td>{{i}}</td>
+                        <td>{{j[0]}}</td>
+                        <td>{{j[1]}}</td>
+                        </tr>
+                    {% endif %}
+                    {% endfor %}
+                        </body>
+                    </table>
+                </div>
+            </fieldset>
+            <div class="border-top pt-3">
+                <small class="text-muted">
+                    Need to add a contact? <a class="ml-2" href=" {{url_for('add')}} ">Add here</a>
+                </small>
+            </div>
+        </div>
+    </center>
+{% endblock content %}
